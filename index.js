@@ -91,7 +91,10 @@ var fook = 0
   
 // }
 // console.log(countries)
-
+// console.log(Object.keys(abbrev));
+// for (var i = 0; i<Object.keys(abbrev).length;i++){
+//   console.log(abbrev[Object.keys(abbrev)[i]])
+// }
 // Add an event listener to the searchButton, call handleSearchButtonClick when clicked
 $searchBtn.addEventListener("click", handleSearchButtonClick);
 $nextBtn.addEventListener("click", addto);
@@ -151,13 +154,13 @@ function handleSearchButtonClick() {
   var dateIn = $datetimeInput.value.trim().toLowerCase();
   var shapeIn = $shapeInput.value.trim().toLowerCase();
 
-
-  for (var i = 0; i<abbrev.length;i++){
-    if (stateIn === abbrev[i].toLowerCase()) {
-      stateIn = abbrev[abbrev[i].toLowerCase()]
+  var f = Object.keys(abbrev);
+  for (var i = 0; i<f.length;i++){
+    if (stateIn === f[i].toLowerCase()) {
+      stateIn = abbrev[f[i]].toLowerCase()
     }
-    if (countryIn === abbrev[i].toLowerCase()) {
-      countryIn = abbrev[abbrev[i].toLowerCase()]
+    if (countryIn === f[i].toLowerCase()) {
+      countryIn = abbrev[f[i]].toLowerCase()
     }
   }
   // Format the user's search by removing leading and trailing whitespace, lowercase the string
