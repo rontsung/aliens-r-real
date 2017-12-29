@@ -154,6 +154,13 @@ function handleSearchButtonClick() {
   var dateIn = $datetimeInput.value.trim().toLowerCase();
   var shapeIn = $shapeInput.value.trim().toLowerCase();
 
+  if (dateIn.charAt(0)==="0") {
+    dateIn = dateIn.substring(1)
+  }
+
+  if (dateIn.charAt(dateIn.indexOf("/")+1)==="0") {
+    dateIn = dateIn.substring(0,dateIn.indexOf("/")+1)+dateIn.substring(dateIn.indexOf("/")+2)
+  }
   var f = Object.keys(abbrev);
   for (var i = 0; i<f.length;i++){
     if (stateIn === f[i].toLowerCase()) {
